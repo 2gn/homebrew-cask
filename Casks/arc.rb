@@ -1,6 +1,6 @@
 cask "arc" do
-  version "0.87.0,36910"
-  sha256 "fe4a1aee4872c5684e476eff9fbd08f8f2852d382848d76ab5cb1596e435f176"
+  version "0.91.1,37373"
+  sha256 "a62131936161b59af646d12ad8b4537d2c956ddcac158e33fcf1660ddbec88e1"
 
   url "https://releases.arc.net/release/Arc-#{version.csv.first}-#{version.csv.second}.zip"
   name "Arc"
@@ -19,7 +19,7 @@ cask "arc" do
   end
 
   auto_updates true
-  depends_on macos: ">= :big_sur"
+  depends_on macos: ">= :monterey"
 
   app "Arc.app"
 

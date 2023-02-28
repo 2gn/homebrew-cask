@@ -1,15 +1,15 @@
 cask "rectangle-pro" do
-  version "2.7.6,132"
-  sha256 "6019732ef9dbf0a3a1ee8a5661c3ea786a9045e39877c7eeac2c50e231cee1a3"
+  version "2.7.9"
+  sha256 "cb420974fd9927d416985604da35ce962a74d802d492393b2b4ac00af8180ecc"
 
-  url "https://rectangleapp.com/pro/downloads/Rectangle%20Pro%20#{version.csv.first}.dmg"
+  url "https://rectangleapp.com/pro/downloads/Rectangle%20Pro%20#{version}.dmg"
   name "Rectangle Pro"
   desc "Window snapping tool"
   homepage "https://rectangleapp.com/pro"
 
   livecheck do
     url "https://rectangleapp.com/pro/downloads/updates.xml"
-    strategy :sparkle
+    strategy :sparkle, &:short_version
   end
 
   auto_updates true

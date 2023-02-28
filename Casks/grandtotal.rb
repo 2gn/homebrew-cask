@@ -1,6 +1,6 @@
 cask "grandtotal" do
-  version "8.0.3"
-  sha256 "95c15349851d53c9a4b21a631a29d69161c67ef6120a3c13ba36cf19920631fc"
+  version "8.0.5.6"
+  sha256 "31e95ca3f5f427021f5d080e3408554ff9d7854e3108436624503a1c2fa4c870"
 
   url "https://www.mediaatelier.com/GrandTotal#{version.major}/GrandTotal_#{version}.dmg"
   name "GrandTotal"
@@ -9,7 +9,10 @@ cask "grandtotal" do
 
   livecheck do
     url "https://www.mediaatelier.com/GrandTotal#{version.major}/feed.php"
-    strategy :sparkle
+    regex(/GrandTotal[._-]v?(\d+(?:\.\d+)*)\.dmg/i)
+    strategy :sparkle do |items, regex|
+      items.map { |item| item.url[regex, 1] }
+    end
   end
 
   depends_on macos: ">= :high_sierra"
